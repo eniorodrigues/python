@@ -47,12 +47,12 @@ valores_noturnos = {
 
 valores_vespertinos ={
     "1": 30,
-    "2": 20,
-    "3": 20,
-    "4": 30,
-    "5": 30,
-    "6": 40,
-    "7": 40
+    "2": 15,
+    "3": 15,
+    "4": 15,
+    "5": 20,
+    "6": 20,
+    "7": 30
 }
 
 def valor_inteira(noturno, dia):
@@ -63,6 +63,7 @@ def valor_inteira(noturno, dia):
         dia = str(dia)
         return float(valores_vespertinos[dia])
 
+valor_inteira(True, 2)
 
 def valor_reduzido(noturno, dia):
     if(noturno == True):
@@ -123,18 +124,18 @@ hora = int(hora)
 print(" <Minuto do horário da sessão> ")
 minuto = input()
 minuto = int(minuto)
-noturno(hora, minuto)
 print(" < Estudante: Sim / Não > S / N ")
 tipo_estudante = input()
 print(" < Método de pagamento: Dinheiro / Cartão > D / C ")
 tipo_dinheiro = input()
 
-if(tipo_dinheiro.upper() == "C"):
+if(tipo_estudante.upper() == "S"):
+    print(valor_meia_inteira(tipo_estudante,noturno(hora, minuto), dia))
+elif(tipo_dinheiro.upper() == "C"):
     print(valor_reduzido(noturno(hora,minuto),dia))
 else:
-    print(valor_meia_inteira(tipo_estudante,noturno(hora, minuto), dia))
-
- 
+    print(valor_inteira(noturno(hora, minuto), dia))
+        
 
 # def valor_ingresso(dia, dinheiro, noturno , estudante):
 #     if(dia==1 and noturno==False and dinheiro==False and estudante==False):
@@ -155,5 +156,3 @@ else:
 #         return float(valores_noturnos["1"])/2
 #     else:
 #         return "ERRO VALOR INGRESS"
- 
- 
